@@ -1,10 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Profile from './Profile'
 
 function App() {
   return (
-   <h1 className="alert alert-primary">Hello from bootstrap</h1>
+   <Profile />
   );
 }
 
