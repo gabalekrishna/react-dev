@@ -1,17 +1,20 @@
 import './RecentPosts.css'
 
-function PostsCard(props){
+function PostsCard({title, date, tags, description}){
+  // props.title
+  // {data, ...} = props
+  // ({data, .....})
     return(
         <div className="d-flex custom-card m-4">
                 <div className="card-body">
-                    <h1 className="fw-seibold text-black">{props.title}</h1>
+                    <h1 className="fw-seibold text-black">{title}</h1>
                     <div className="d-flex align-items-center text-secondary">
-                        <span>{props.date}</span>
+                        <span>{date}</span>
                         <span className="mx-2"> | </span>
-                        <span> {props.tags}</span>
+                        <span> {tags}</span>
                     </div>
                     <p>
-                     {props.description}
+                     {description}
                     </p>
                 </div>
             </div>

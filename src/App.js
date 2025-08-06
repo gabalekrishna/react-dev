@@ -12,9 +12,16 @@ function App() {
           Creative Technologist"
         button1="Download Resume----"  
       />
-      <RecentPosts />
+      <RecentPosts  />
     </>
   );
 }
 
 export default App;
+
+
+// App => profile, recentpost => postcard
+
+// props parent to child 
+// props are immutable 
+// one way data flow => undirectional data flow 
