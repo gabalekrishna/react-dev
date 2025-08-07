@@ -1,5 +1,5 @@
 import PostsCard from "./PostsCard";
-import Profile from "./Profile";
+import Profile from "./components/Profile/Profile";
 import "./RecentPosts.css";
 
 const RecentPosts = (props) => {

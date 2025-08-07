@@ -1,19 +1,18 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Profile from "./Profile";
+import { Routes, Route } from 'react-router-dom'
+import Home from "./Home";
+import Work from "./components/Work/Work";
 import RecentPosts from "./RecentPosts";
 
 function App() {
   return (
-    <>
-      <Profile
-        heading="Hi, I am sandip,
-          Creative Technologist"
-        button1="Download Resume----"  
-      />
-      <RecentPosts  />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/work" element={<Work />}/>
+      <Route path="/blog" element={<RecentPosts />}/>
+    </Routes>
   );
 }
 

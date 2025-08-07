@@ -1,5 +1,7 @@
 import React from "react";
-import ProfileImg from './Profile.png'
+import ProfileImg from '../../Profile.png'
+import { Link } from "react-router-dom";
+
 
 // component jsx => javascript xl 
 const Profile = (props) => {
@@ -12,19 +14,19 @@ const Profile = (props) => {
         >
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <a className="nav-link font-weight-bold" href="#">
+              <Link className="nav-link font-weight-bold" to="/work">
                 Works
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/blog">
                 Blog
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/contact">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
