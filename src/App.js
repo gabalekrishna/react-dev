@@ -7,11 +7,12 @@ import Work from "./components/Work/Work";
 import RecentPosts from "./RecentPosts";
 import Counter from "./components/Counter";
 import UserList from "./components/UserList";
+import Todos from "./components/Todos";
 
 function App() {
   return (
     <>
-       <UserList />
+       <Todos />
     </>
     // <Routes>
     //   <Route path="/" element={<Home />}/>
