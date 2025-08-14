@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileImg from '../../Profile.png'
+// import ProfileImg from '../../Profile.png'
 import { Link } from "react-router-dom";
 
 
@@ -43,10 +43,10 @@ const Profile = (props) => {
           <button className="btn">{props.button1}</button>
          </div>
          <div className="col-md-6">
-          <img 
+          {/* <img 
           src={ProfileImg}
           alt="profile-photo"
-          />
+          /> */}
          </div>
        </div>
       </div>

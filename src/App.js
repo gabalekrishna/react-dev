@@ -5,14 +5,19 @@ import { Routes, Route } from 'react-router-dom'
 import Home from "./Home";
 import Work from "./components/Work/Work";
 import RecentPosts from "./RecentPosts";
+import Counter from "./components/Counter";
+import UserList from "./components/UserList";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />}/>
-      <Route path="/work" element={<Work />}/>
-      <Route path="/blog" element={<RecentPosts />}/>
-    </Routes>
+    <>
+       <UserList />
+    </>
+    // <Routes>
+    //   <Route path="/" element={<Home />}/>
+    //   <Route path="/work" element={<Work />}/>
+    //   <Route path="/blog" element={<RecentPosts />}/>
+    // </Routes>
   );
 }
 
