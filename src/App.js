@@ -8,11 +8,13 @@ import RecentPosts from "./RecentPosts";
 import Counter from "./components/Counter";
 import UserList from "./components/UserList";
 import Todos from "./components/Todos";
+import Users from "./components/Users";
 
 function App() {
   return (
     <>
-       <Todos />
+       {/* <Todos /> */}
+       <Users />
     </>
     // <Routes>
     //   <Route path="/" element={<Home />}/>

@@ -1,20 +1,27 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 
 const Todos = () => {
-    const todosList = [{todo: "milk"},{todo: "sugar"}, {todo: "butter"} ]
-    const [todos, setTodos] = useState(todosList)
+    const [todos, setTodos] = useState([])
     const [name, setName] = useState("")
     const handleAddTodo = () => {
-    setTodos([...todos, { todo: name}])
+    setTodos([...todos, { title: name}])
     setName("")
     }
    const handleDelete = (e,deleteuser) => {
     console.log(deleteuser)
-    const updatedTodos =  todos.forEach((item) => item.todo !== deleteuser)
+    const updatedTodos =  todos.filter((item) => item.title !== deleteuser)
     setTodos(updatedTodos)
    }
+  const callApi = async() => {
+    const data =await fetch("https://jsonplaceholder.typicode.com/todos");
+    const result = await data.json();
+    setTodos(result)
+  }
+  useEffect(()=> {
+    callApi();
+  },[])
    
     return (
         <div className="d-flex align-items-baseline">
@@ -26,8 +33,8 @@ const Todos = () => {
                todos.map((item , index)=>{
                 return (
                     <h4>
-                        {item.todo}
-                        <span className="btn btn-primary" onClick={(e)=> handleDelete(e,item.todo)}> 🗑️ </span>
+                        {item.title}
+                        <span className="btn btn-primary" onClick={(e)=> handleDelete(e,item.title)}> 🗑️ </span>
                     </h4>
                 )
                })
