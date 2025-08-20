@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [name, setName] = useState("");
-  const [edit, setEdit] = useState(null);
-  const [editName, setEditName] = useState("");
+  const [editName, setEditName] = useState("")
+  const [editId, setEditId] = useState(null);
+ 
   function handleAdduser() {
     setUsers([...users, { username: name }]);
     setName("");
@@ -14,21 +15,21 @@ const Users = () => {
     setUsers(UpdatedList);
   };
 
-  const handleEdit = (id, username) => {
-    setEdit(id);
+  const handleEdit = (id,username) => {
+    setEditId(id)
     setEditName(username);
-  };
-  const handleEditSave = (id) => {
-    const updatedName = users.map((item, index)=> 
-        {
-        if(item.id === id){
-            return {...users, username: editName}
-        } else{
-            return item;
-        }
-    },
-    )
-    setUsers(updatedName)
+  }
+
+  const handleUpdate = () => {
+    const updatedUsers = users.map((item,index)=> {
+      if(item.id === editId){
+        return {...item, username: editName}
+      } else{
+        return item;
+      }
+    })
+    setUsers(updatedUsers)
+    setEditId(null)
   }
 
   const callApi = async () => {
@@ -40,8 +41,6 @@ const Users = () => {
   useEffect(() => {
     callApi();
   }, []);
-
-  console.log(edit, "editedId");
   return (
     <div>
       <input
@@ -50,28 +49,15 @@ const Users = () => {
         onChange={(e) => setName(e.target.value)}
       />
       <button onClick={handleAdduser}>Add user</button>
-
       <div>
         <h1>Users List</h1>
-        <h4>{edit}</h4>
         <ul>
           {users.map((user, index) => {
             return (
               <li key={index}>
-                <div>
-                  {edit === user.id ? (
-                    <>
-                      <input
-                        value={editName}
-                        onChange={(e) => setEditName(e.target.value)}
-                      />{" "}
-                      <button onClick={() =>handleEditSave(user.id)}>Save Edit name</button>
-                    </>
-                  ) : (
-                    ""
-                  )}
-                </div>
-
+                {
+                  user.id === editId ? <><input value={editName} onChange={(e)=>setEditName(e.target.value)}/><button onClick={handleUpdate}>Update</button></> : <></>
+                }
                 {user.username}
                 <button
                   className="btn btn-danger"
@@ -83,7 +69,7 @@ const Users = () => {
                 <button
                   className="btn btn-danger"
                   style={{ marginLeft: "10px" }}
-                  onClick={() => handleEdit(user.id, user.username)}
+                  onClick={() => handleEdit(user.id,user.username)}
                 >
                   Edit
                 </button>
